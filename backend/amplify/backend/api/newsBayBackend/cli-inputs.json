@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/news": {
+      "name": "/news",
+      "lambdaFunction": "NewsBay",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
