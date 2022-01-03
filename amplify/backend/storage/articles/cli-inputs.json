@@ -1,0 +1,22 @@
+{
+  "resourceName": "articles",
+  "tableName": "articles",
+  "partitionKey": {
+    "fieldName": "articleId",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "time",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "email",
+      "partitionKey": {
+        "fieldName": "email",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}

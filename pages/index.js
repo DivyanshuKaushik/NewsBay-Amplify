@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import useAuthenticatedUser from '../hooks/authenticatedUser'
 
 export default function Home() {
+  const user = useAuthenticatedUser()
+  console.log('index page',user)
   return (
     <div className="">
       <Head>

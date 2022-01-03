@@ -6,7 +6,7 @@
 }
 @layer components {
     .panel_nav_item{
-        @apply flex items-center space-x-2 text-gray-100 py-4 tracking-wide transform transition-all duration-200 ease-out hover:text-gray-400 hover:scale-105 active:scale-95;
+        @apply flex items-center space-x-1 text-gray-100 py-4 tracking-wide transform transition-all duration-200 ease-out hover:text-gray-400 hover:scale-105 active:scale-95;
     }
     .active_effect{
         @apply transform transition-all duration-200 ease-out active:scale-75;

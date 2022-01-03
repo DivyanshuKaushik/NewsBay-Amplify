@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ModalRegular from "../Utilities/ModalRegular";
 import Button from "@material-tailwind/react/Button";
+import { FaTrash } from "react-icons/fa";
 
 const DeletePost = ({post}) => {
     const [showModal, setShowModal] = useState(false);
@@ -13,7 +12,7 @@ const DeletePost = ({post}) => {
           className="text-red-400 focus:outline-none flex text-sm items-center"
           onClick={() => setShowModal(true)}
         >
-          <FontAwesomeIcon icon={faTrash} className="h-3.5" /> <strong>Delete</strong> 
+          <FaTrash size={13} /> <strong>Delete</strong> 
         </button>
         <ModalRegular
           showModal={showModal}

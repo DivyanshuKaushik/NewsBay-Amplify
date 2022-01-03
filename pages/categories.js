@@ -1,6 +1,10 @@
-import React from "react";
+import { Auth } from "aws-amplify";
+import Router,{ useRouter } from "next/router";
+import React, { useEffect } from "react";
 import AddCategory from "../components/Categories/AddCategory";
 import Categories from "../components/Categories/Categories";
+import Protected from "../components/Utilities/Protected";
+import useAuthenticatedUser from "../hooks/authenticatedUser";
 
 const category = [
   "sports",
@@ -14,7 +18,24 @@ const category = [
 ];
 
 const categories = () => {
+  const router = useRouter()
+  // const user = useAuthenticatedUser()
+  // useEffect(()=>{
+  //   checkUser()
+  //   async function checkUser(){
+  //     try{
+  //       const user = await Auth.currentAuthenticatedUser()
+  //       if(!user)router.push('/auth/signin')
+  //           // console.log(user)
+  //       }catch(err){
+  //         console.log(err);
+  //       }
+  //   }
+
+  // },[])
   return (
+    <Protected >
+
     <main className="flex flex-col w-5/6 md:2/3 mx-auto">
       <section className="p-4 space-y-4 border-b">
         <h3 className="text-2xl">News Categories</h3>
@@ -26,6 +47,7 @@ const categories = () => {
         <AddCategory />
       </section>
     </main>
+    </Protected>
   );
 };
 

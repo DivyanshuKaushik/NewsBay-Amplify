@@ -1,5 +1,3 @@
-import { faFileArchive, faFolder } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
 
@@ -7,15 +5,15 @@ const dashboard = () => {
   return (
     <main className="flex flex-wrap justify-around items-center p-3 md:w-3/4 mx-auto space-x-6">
       <div className="h-48 w-48 py-3 flex flex-col items-center justify-center border shadow-md space-y-3">
-        <FontAwesomeIcon icon={faFolder} className="h-10 w-10 text-gray-700" />
+        {/* <FontAwesomeIcon icon={faFolder} className="h-10 w-10 text-gray-700" /> */}
         <center className="bg-gray-300 w-full py-3">Total Post</center>
         <center className="text-xl">3</center>
       </div>
       <div className="h-48 w-48 py-3 flex flex-col items-center justify-center border shadow-md space-y-3">
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           icon={faFileArchive}
           className="h-10 w-10 text-gray-700"
-        />
+        /> */}
         <center className="bg-gray-300 w-full py-3">Unpublished Post</center>
         <center className="text-xl">3</center>
       </div>

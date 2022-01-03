@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ModalRegular from "../Utilities/ModalRegular";
 import Textarea from "@material-tailwind/react/Textarea";
 import InputOutline from "../../components/Utilities/InputOutline";
 import Label from "@material-tailwind/react/Label";
 import Category from "../Utilities/Category";
+import { FaEdit } from "react-icons/fa";
 
 const EditPost = ({ post }) => {
   const [showModal, setShowModal] = useState(false);
@@ -23,13 +22,17 @@ const EditPost = ({ post }) => {
   // const post = (e) => {
   //   e.preventDefault();
   // };
+  const onChange = (e)=>{
+
+  }
   return (
     <>
       <button
         className="text-red-400 focus:outline-none flex text-xs md:text-sm items-center"
         onClick={() => setShowModal(true)}
       >
-        <FontAwesomeIcon icon={faEdit} className="h-3.5" />
+        {/* <FontAwesomeIcon icon={faEdit} className="h-3.5" /> */}
+        <FaEdit size={14} />
         <strong>Edit</strong>
       </button>
       <ModalRegular
@@ -44,7 +47,7 @@ const EditPost = ({ post }) => {
           // onSubmit={(e) => post(e)}
         >
           <div className="flex items-center w-full">
-            <InputOutline placeholder="Title" value={title} />
+            <InputOutline placeholder="Title" onChange={onChange} value={title} />
           </div>
           <div className="flex items-center w-full">
             <Textarea
@@ -52,11 +55,11 @@ const EditPost = ({ post }) => {
               size="sm"
               outline={true}
               placeholder="Summary"
-              value={summary}
+              onChange={onChange} value={summary}
             />
           </div>
           <div className="flex items-center w-full">
-            <InputOutline placeholder="Source" value={source} />
+            <InputOutline placeholder="Source" onChange={onChange} value={source} />
           </div>
           {category && <Label color="orange">{category}</Label>}
           <div className="flex justify-center md:justify-between items-center flex-wrap-reverse md:flex-nowrap">

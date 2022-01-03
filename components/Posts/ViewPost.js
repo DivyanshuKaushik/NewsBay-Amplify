@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import DeletePost from "./DeletePost";
 import EditPost from "./EditPost";
 import ModalRegular from "../Utilities/ModalRegular";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { FaEye } from "react-icons/fa";
 
 const ViewPost = ({ post }) => {
   const {
@@ -26,7 +25,8 @@ const ViewPost = ({ post }) => {
         className="text-red-400 focus:outline-none flex text-sm items-center"
         onClick={() => setShowModal(true)}
       >
-        <FontAwesomeIcon icon={faEye} className="h-3.5" />
+        {/* <FontAwesomeIcon icon={faEye} className="h-3.5" /> */}
+        <FaEye size={14} className="mr-0.5" />
         <strong>View</strong>
       </button>
       <ModalRegular

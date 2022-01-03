@@ -1,6 +1,6 @@
 import React from 'react'
 import Input  from "@material-tailwind/react/Input";
-const InputOutline = ({placeholder,value,changeFunc}) => {
+const InputOutline = ({placeholder,value,onChange}) => {
     return (
         <>
         <Input
@@ -10,7 +10,7 @@ const InputOutline = ({placeholder,value,changeFunc}) => {
             outline={true}
             placeholder={placeholder}
             value={value}
-            onChange={changeFunc}
+            onChange={onChange}
           />
             
         </>
