@@ -41,6 +41,11 @@
     "articles": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
+    },
+    "news": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   },
   "function": {

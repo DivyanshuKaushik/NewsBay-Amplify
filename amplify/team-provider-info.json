@@ -19,7 +19,14 @@
         }
       },
       "auth": {
-        "newsf84acd3e": {}
+        "newsf84acd3e": {},
+        "true": {}
+      },
+      "function": {
+        "articles": {
+          "deploymentBucketName": "amplify-news-dev-190930-deployment",
+          "s3Key": "amplify-builds/articles-63494a35353054436445-build.zip"
+        }
       }
     }
   }
