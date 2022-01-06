@@ -12,6 +12,7 @@ const SignInPage = () => {
   const onChange = (e)=>{
     setCredentials({...credentials,[e.target.name]:e.target.value})
   }
+
   const signIn = async(e)=>{
     e.preventDefault()
     try{
@@ -20,14 +21,27 @@ const SignInPage = () => {
 
     }
   }
-  const forgetPassword = (e)=>{
+  const forgetPassword = async(e)=>{
     e.preventDefault()
+    try{
+
+    }catch(err){
+
+    }
+  }
+  const forgetPasswordSubmit = async(e)=>{
+    e.preventDefault()
+    try{
+
+    }catch(err){
+
+    }
   }
   console.log(uiState)
   return (
     <main className="min-h-full w-full flex justify-center items-center">
       {uiState==="signIn" ?
-        <SignIn onChange={onChange} setCredentials={setCredentials} signIn={signIn} setUiState={setUiState} />
+        <SignIn onChange={onChange} signIn={signIn} setUiState={setUiState} />
         :<ForgotPassword onChange={onChange} setCredentials={setCredentials} signIn={signIn} uiState={uiState} setUiState={setUiState}/>
       }
       {/* {uiState===( "enterEmail" )&&  */}

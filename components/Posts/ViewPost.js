@@ -1,9 +1,11 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import DeletePost from "./DeletePost";
 import EditPost from "./EditPost";
 import ModalRegular from "../Utilities/ModalRegular";
 import { FaEye } from "react-icons/fa";
+import Tooltips from "@material-tailwind/react/Tooltips";
+import TooltipsContent from "@material-tailwind/react/TooltipsContent";
 
 const ViewPost = ({ post }) => {
   const {
@@ -19,16 +21,19 @@ const ViewPost = ({ post }) => {
     published,
   } = post;
   const [showModal, setShowModal] = useState(false);
+  const buttonRef = useRef();
   return (
     <>
       <button
         className="text-red-400 focus:outline-none flex text-sm items-center"
         onClick={() => setShowModal(true)}
+        ref={buttonRef}
       >
-        {/* <FontAwesomeIcon icon={faEye} className="h-3.5" /> */}
-        <FaEye size={14} className="mr-0.5" />
-        <strong>View</strong>
+        <FaEye size={18} className="mr-0.5" />
       </button>
+      <Tooltips placement="top" ref={buttonRef}>
+        <TooltipsContent>View</TooltipsContent>
+      </Tooltips>
       <ModalRegular
         showModal={showModal}
         setShowModal={setShowModal}

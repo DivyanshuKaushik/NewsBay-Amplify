@@ -13,7 +13,8 @@ const Protected = ({children}) => {
                 setUser(user)
             }catch(err){
                 console.error(err)
-                if(!user)router.push('/auth/signin')
+                // if(!user)router.push('/auth/signin')
+                setUser(true)
             }
         }
     },[])

@@ -1,40 +1,35 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ModalRegular from "../Utilities/ModalRegular";
 import Textarea from "@material-tailwind/react/Textarea";
 import InputOutline from "../../components/Utilities/InputOutline";
 import Label from "@material-tailwind/react/Label";
 import Category from "../Utilities/Category";
 import { FaEdit } from "react-icons/fa";
+import Tooltips from "@material-tailwind/react/Tooltips";
+import TooltipsContent from "@material-tailwind/react/TooltipsContent";
 
 const EditPost = ({ post }) => {
   const [showModal, setShowModal] = useState(false);
-  const {
-    id,
-    title,
-    summary,
-    imageUrl,
-    source,
-    author,
-    time,
-    published,
-  } = post;
+  const { id, title, summary, imageUrl, source, author, time, published } =
+    post;
   const [category, setCategory] = useState(post.category);
+  const buttonRef = useRef();
   // const post = (e) => {
   //   e.preventDefault();
   // };
-  const onChange = (e)=>{
-
-  }
+  const onChange = (e) => {};
   return (
     <>
       <button
         className="text-red-400 focus:outline-none flex text-xs md:text-sm items-center"
         onClick={() => setShowModal(true)}
+        ref={buttonRef}
       >
-        {/* <FontAwesomeIcon icon={faEdit} className="h-3.5" /> */}
-        <FaEdit size={14} />
-        <strong>Edit</strong>
+        <FaEdit size={17} />
       </button>
+      <Tooltips placement="top" ref={buttonRef}>
+        <TooltipsContent>Edit</TooltipsContent>
+      </Tooltips>
       <ModalRegular
         showModal={showModal}
         setShowModal={setShowModal}
@@ -47,7 +42,11 @@ const EditPost = ({ post }) => {
           // onSubmit={(e) => post(e)}
         >
           <div className="flex items-center w-full">
-            <InputOutline placeholder="Title" onChange={onChange} value={title} />
+            <InputOutline
+              placeholder="Title"
+              onChange={onChange}
+              value={title}
+            />
           </div>
           <div className="flex items-center w-full">
             <Textarea
@@ -55,11 +54,16 @@ const EditPost = ({ post }) => {
               size="sm"
               outline={true}
               placeholder="Summary"
-              onChange={onChange} value={summary}
+              onChange={onChange}
+              value={summary}
             />
           </div>
           <div className="flex items-center w-full">
-            <InputOutline placeholder="Source" onChange={onChange} value={source} />
+            <InputOutline
+              placeholder="Source"
+              onChange={onChange}
+              value={source}
+            />
           </div>
           {category && <Label color="orange">{category}</Label>}
           <div className="flex justify-center md:justify-between items-center flex-wrap-reverse md:flex-nowrap">

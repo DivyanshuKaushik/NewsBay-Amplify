@@ -1,10 +1,10 @@
 import { Auth } from "aws-amplify";
 import Router,{ useRouter } from "next/router";
 import React, { useEffect } from "react";
-import AddCategory from "../components/Categories/AddCategory";
-import Categories from "../components/Categories/Categories";
-import Protected from "../components/Utilities/Protected";
-import useAuthenticatedUser from "../hooks/authenticatedUser";
+import AddCategory from "../../components/Categories/AddCategory";
+import Categories from "../../components/Categories/Categories";
+import Protected from "../../components/Utilities/Protected";
+import useAuthenticatedUser from "../../hooks/authenticatedUser";
 
 const category = [
   "sports",
@@ -17,7 +17,7 @@ const category = [
   "tech"
 ];
 
-const categories = () => {
+const ManageCategory = () => {
   const router = useRouter()
   // const user = useAuthenticatedUser()
   // useEffect(()=>{
@@ -51,4 +51,4 @@ const categories = () => {
   );
 };
 
-export default categories;
+export default ManageCategory;

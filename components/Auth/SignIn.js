@@ -4,7 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 import { Auth } from "aws-amplify";
 
-const SignIn = ({onChange,setCredentials,signIn,setUiState}) => {
+const SignIn = ({onChange,signIn,setUiState}) => {
   return (
     <div className="flex flex-col space-y-4 border shadow-xl rounded-2xl p-3 px-5 w-4/5 md:w-1/3 mt-10">
       <div className="">

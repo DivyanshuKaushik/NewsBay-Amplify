@@ -9,9 +9,13 @@ Amplify.configure({
   ...awsmobile, ssr: true
 });
 
-import Header from "../components/Header";
+import Header from "../components/Layout/Header";
 import Head from "next/head";
+import useAuthenticatedUser from "../hooks/authenticatedUser";
+import CategoryHeader from "../components/Layout/CategoryHeader";
+import MainHeader from "../components/Layout/MainHeader";
 function MyApp({ Component, pageProps }) {
+  const user = useAuthenticatedUser() || true
   return (
     <>
       <Head>
@@ -26,7 +30,9 @@ function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
         />
       </Head>
-      <Header />
+      {user && <Header />} 
+      <MainHeader />
+      {/* <CategoryHeader /> */}
       <Component {...pageProps} />
     </>
   );

@@ -19,13 +19,17 @@
         }
       },
       "auth": {
-        "newsf84acd3e": {},
         "true": {}
       },
       "function": {
         "articles": {
           "deploymentBucketName": "amplify-news-dev-190930-deployment",
           "s3Key": "amplify-builds/articles-63494a35353054436445-build.zip"
+        },
+        "news336c2282PostConfirmation": {
+          "GROUP": "reporter",
+          "deploymentBucketName": "amplify-news-dev-190930-deployment",
+          "s3Key": "amplify-builds/news336c2282PostConfirmation-356b696433682f48447a-build.zip"
         }
       }
     }
