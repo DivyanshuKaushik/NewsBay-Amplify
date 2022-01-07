@@ -13,6 +13,14 @@ export type AmplifyDependentResourcesAttributes = {
         "news": {
             "BucketName": "string",
             "Region": "string"
+        },
+        "category": {
+            "Name": "string",
+            "Arn": "string",
+            "StreamArn": "string",
+            "PartitionKeyName": "string",
+            "PartitionKeyType": "string",
+            "Region": "string"
         }
     },
     "function": {
@@ -27,10 +35,21 @@ export type AmplifyDependentResourcesAttributes = {
             "Arn": "string",
             "LambdaExecutionRole": "string",
             "Region": "string"
+        },
+        "category": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
         }
     },
     "api": {
         "articles": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
+        },
+        "category": {
             "RootUrl": "string",
             "ApiName": "string",
             "ApiId": "string"

@@ -19,4 +19,7 @@
     .active_effect{
         @apply transform transition-all duration-200 ease-out active:scale-75;
     }
+    .card-image{
+        @apply group-hover:scale-110 transform transition-all duration-150 ease-in-out absolute;
+    }
 }

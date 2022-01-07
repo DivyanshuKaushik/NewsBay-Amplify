@@ -16,6 +16,10 @@
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": []
+    },
+    "category": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   },
   "function": {
@@ -39,6 +43,22 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "category": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "category",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
     }
   },
   "api": {
@@ -49,6 +69,20 @@
         {
           "category": "function",
           "resourceName": "articles",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
+    },
+    "category": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "category",
           "attributes": [
             "Name",
             "Arn"

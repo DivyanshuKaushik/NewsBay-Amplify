@@ -1,5 +1,5 @@
 module.exports = {
     images:{
-        domains:['akm-img-a-in.tosshub.com','localhost','firebasestorage.googleapis.com','cdn3.iconfinder.com',"khabarcgnews.com","images.unsplash.com"]
+        domains:['akm-img-a-in.tosshub.com','localhost','firebasestorage.googleapis.com','cdn3.iconfinder.com',"khabarcgnews.com","images.unsplash.com","demo.tagdiv.com"]
     }
 }
