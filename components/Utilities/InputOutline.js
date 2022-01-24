@@ -1,17 +1,18 @@
 import React from 'react'
-import Input  from "@material-tailwind/react/Input";
+import TextField from '@mui/material/TextField';
 const InputOutline = ({placeholder,value,onChange}) => {
     return (
         <>
-        <Input
+         <TextField id="outlined-basic" color='warning' label={placeholder} variant="outlined" onChange={onChange} defaultValue={value} />
+        {/* <Input
             type="text"
             color="orange"
             size="regular"
             outline={true}
             placeholder={placeholder}
             value={value}
-            onChange={onChange}
-          />
+            
+          /> */}
             
         </>
     )

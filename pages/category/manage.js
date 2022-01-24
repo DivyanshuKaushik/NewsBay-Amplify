@@ -1,4 +1,4 @@
-import { Auth } from "aws-amplify";
+// import { Auth } from "aws-amplify";
 import Router,{ useRouter } from "next/router";
 import React, { useEffect } from "react";
 import AddCategory from "../../components/Categories/AddCategory";

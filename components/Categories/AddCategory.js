@@ -1,6 +1,6 @@
 import React from "react";
 import InputOutline from "../Utilities/InputOutline";
-import Button from "@material-tailwind/react/Button";
+// import Button from "@material-tailwind/react/Button";
 
 const AddCategory = () => {
   return (
@@ -9,7 +9,7 @@ const AddCategory = () => {
         <InputOutline placeholder="Category" />
       </div>
       <div className="mt-2">
-        <Button
+        {/* <Button
           color="cyan"
           buttonType="filled"
           size="regular"
@@ -19,7 +19,7 @@ const AddCategory = () => {
           ripple="light"
         >
           Add
-        </Button>
+        </Button> */}
       </div>
     </form>
   );

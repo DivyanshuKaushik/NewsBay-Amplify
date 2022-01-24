@@ -1,5 +1,5 @@
 import SignIn from "../../components/Auth/SignIn";
-import { Auth } from "aws-amplify";
+// import { Auth } from "aws-amplify";
 import { useState } from "react";
 import ForgotPassword from "../../components/Auth/ForgetPassword";
 

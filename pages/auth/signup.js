@@ -2,7 +2,7 @@ import { HiOutlineLockClosed, HiOutlineMail, HiOutlineUser } from "react-icons/h
 import {FcGoogle} from 'react-icons/fc'
 import { FaFacebook } from "react-icons/fa";
 import Link from "next/link"
-import { Auth } from "aws-amplify";
+// import { Auth } from "aws-amplify";
 
 const SignUpPage = () => {
     return (
@@ -13,10 +13,10 @@ const SignUpPage = () => {
           <h3 className="text-lg text-gray-600 capitalize">Create New Account</h3>
         </div>
         <div className="w-2/3 md:w-1/2 mx-auto space-y-3">
-            <button className="flex items-center w-full bg-gray-200 p-2 rounded-full" onClick={()=>Auth.federatedSignIn({provider:"Google"})}>
+            {/* <button className="flex items-center w-full bg-gray-200 p-2 rounded-full" onClick={()=>Auth.federatedSignIn({provider:"Google"})}>
                 <FcGoogle size={25} />
                 <span className="ml-2 text-sm text-gray-800">Sign in with Google</span>
-            </button>
+            </button> */}
             <button className="flex items-center w-full text-white bg-blue-900 p-2 rounded-full">
                 <FaFacebook  size={25} className=""/>
                 <span className="ml-2 text-sm">Sign in with Facebook</span>

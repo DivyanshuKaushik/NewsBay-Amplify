@@ -20,6 +20,9 @@
         @apply transform transition-all duration-200 ease-out active:scale-75;
     }
     .card-image{
-        @apply group-hover:scale-110 transform transition-all duration-150 ease-in-out absolute;
+        @apply group-hover:scale-105 group-hover:rounded-2xl transform transition-all duration-150 ease-in-out absolute rounded-md;
+    }
+    .posts_tab_li{
+        @apply px-3 py-2 uppercase text-xs text-blue-500 cursor-pointer md:text-sm;
     }
 }

@@ -2,24 +2,22 @@ import Image from "next/image";
 import React, { useState } from "react";
 import DeletePost from "./DeletePost";
 import EditPost from "./EditPost";
+import PostStatus from "./PostStatus";
 import ViewPost from "./ViewPost";
 
 const PostItem = ({ postData,sNum }) => {
-    const { id, title, summary, imageUrl, category,source, author, time,tags, published }=postData;
+    const { id, title, summary, image, category,source, author, time,tags, published }=postData;
   return (
-    <article className={`flex flex-col md:flex-row justify-between md:items-center px-2 py-3 border-b w-full ${sNum%2 ? 'bg-white': 'bg-gray-100' }`}>
+    <article className={`shadow-md rounded-md flex flex-col w-5/6 md:max-w-sm m-2 justify-center items-center p-3 bg-slate-100`}>
         <h3 className="text-sm text-gray-800">
-        <span className="mr-2">{sNum+1})</span>
           {title}
           <span className="text-xs uppercase text-red-500">~{category}</span>
         </h3>
-        {/* <ul className="flex space-x-2 my-2">
-          {tags.map((tag,i)=><li key={i} className="text-xs">#{tag}</li>)}
-        </ul> */}
-        <div className="flex justify-end space-x-4 px-3 mt-2 md:mt-0">
+        <div className="flex justify-end space-x-4 px-3 mt-2">
           <ViewPost post={postData} />
           <EditPost post={postData} />
           <DeletePost post={postData} />
+          <PostStatus post={postData} />
         </div>
     </article>
   );

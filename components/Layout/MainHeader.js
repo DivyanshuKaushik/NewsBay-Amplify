@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaSearch } from "react-icons/fa";
+import { FaMobile, FaSearch } from "react-icons/fa";
 const category = [
   "Sports",
   "Bussiness",
@@ -25,8 +25,9 @@ const MainHeader = () => {
       <div className="flex justify-around items-center">
         <nav className="flex overflow-x-scroll scrollbar-hide">
           {category.map((item, i) => (
-            <Link key={i} href={`/category/${item}`}>
-              <a className="text-gray-700 text-sm font-semibold uppercase py-3 mx-3 hover:text-gray-800">
+            <Link key={i} href={`/${item}`}>
+              <a className="flex text-gray-700 text-sm font-semibold uppercase py-3 mx-3 hover:text-gray-800">
+              <FaMobile size={16}/>
                 {item}
               </a>
             </Link>

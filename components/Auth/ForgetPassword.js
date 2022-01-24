@@ -1,7 +1,6 @@
 import { HiOutlineLockClosed, HiOutlineMail } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { Auth } from "aws-amplify";
 
 const ForgotPassword = ({
   onChange,

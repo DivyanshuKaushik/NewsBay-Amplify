@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Auth } from 'aws-amplify'
+// import { Auth } from 'aws-amplify'
 
 function useAuthenticatedUser() {
     const [user,setUser] = useState(null)
@@ -7,9 +7,9 @@ function useAuthenticatedUser() {
         checkUser()
         async function checkUser(){
             try{
-                const user = await Auth.currentAuthenticatedUser()
+                // const user = await Auth.currentAuthenticatedUser()
                 // console.log(user)
-                setUser(user)
+                setUser(true)
             }catch(err){
                 setUser(null)
             }

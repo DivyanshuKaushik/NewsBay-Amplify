@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Auth } from 'aws-amplify'
 import { useRouter } from 'next/router'
 
 const Protected = ({children}) => {
@@ -9,8 +8,8 @@ const Protected = ({children}) => {
         checkUser()
         async function checkUser(){
             try{
-                const user = await Auth.currentAuthenticatedUser()
-                setUser(user)
+                // const user = await Auth.currentAuthenticatedUser()
+                setUser(true)
             }catch(err){
                 console.error(err)
                 // if(!user)router.push('/auth/signin')

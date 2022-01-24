@@ -19,11 +19,11 @@ const dashboard = () => {
       </div>
       <div className="flex flex-col flex-grow p-4 justify-center items-center shadow-md">
         <div className="h-32 w-32 relative">
-          <Image
+          {/* <Image
             src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/man5-512.png"
             layout="fill"
             objectFit="contain"
-          />
+          /> */}
         </div>
         <h3 className="text-xl my-2">Divyanshu Kaushik</h3>
         <h3 className="bg-blue-300 text-blue-600 w-full text-center py-3">

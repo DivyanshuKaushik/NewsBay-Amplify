@@ -1,18 +1,14 @@
 import Image from "next/image";
 import React, { useRef, useState } from "react";
-import DeletePost from "./DeletePost";
-import EditPost from "./EditPost";
-import ModalRegular from "../Utilities/ModalRegular";
 import { FaEye } from "react-icons/fa";
-import Tooltips from "@material-tailwind/react/Tooltips";
-import TooltipsContent from "@material-tailwind/react/TooltipsContent";
+import Modal from "../Utilities/Modal";
 
 const ViewPost = ({ post }) => {
-  const {
+  let {
     id,
     title,
     summary,
-    imageUrl,
+    image,
     category,
     source,
     author,
@@ -20,27 +16,11 @@ const ViewPost = ({ post }) => {
     tags,
     published,
   } = post;
-  const [showModal, setShowModal] = useState(false);
   const buttonRef = useRef();
   return (
     <>
-      <button
-        className="text-red-400 focus:outline-none flex text-sm items-center"
-        onClick={() => setShowModal(true)}
-        ref={buttonRef}
-      >
-        <FaEye size={18} className="mr-0.5" />
-      </button>
-      <Tooltips placement="top" ref={buttonRef}>
-        <TooltipsContent>View</TooltipsContent>
-      </Tooltips>
-      <ModalRegular
-        showModal={showModal}
-        setShowModal={setShowModal}
-        close={true}
-        title="Viewing Post"
-      >
-        <article className="w-full h-full">
+    <Modal btnName="View" btnColor="success" title={title}>
+    <article className="w-full h-full">
           <div className="flex w-full h-full flex-wrap md:flex-nowrap">
             <div className="">
               <h3 className="text-2xl text-gray-700">
@@ -49,13 +29,13 @@ const ViewPost = ({ post }) => {
                   ~{category}
                 </span>
               </h3>
-              <ul className="flex space-x-2 my-2 mt-4">
-                {tags.map((tag, i) => (
+              {/* <ul className="flex space-x-2 my-2 mt-4">
+                {tags && tags.map((tag, i) => (
                   <li key={i} className="text-xs">
                     #{tag}
                   </li>
                 ))}
-              </ul>
+              </ul> */}
               <div className="flex space-x-10 text-sm text-gray-500 my-3">
                 <h3 className="">{time}</h3>
                 <h3 className="italic">
@@ -65,13 +45,13 @@ const ViewPost = ({ post }) => {
               <p className="mt-4 text-sm text-gray-800 hidden md:block">Read More - {source}</p>
             </div>
             <div className="h-64 w-full md:w-1/2 md:h-48 relative">
-              <Image src={imageUrl} layout="fill" className="rounded-md" />
+              <img src={image} layout="fill" className="rounded-md" />
             </div>
           </div>
           <p className="text-sm font-light my-2 text-justify pr">{summary}</p>
           <p className="mt-4 text-sm text-gray-800 md:hidden block">Read More - {source}</p>
         </article>
-      </ModalRegular>
+    </Modal>
     </>
   );
 };

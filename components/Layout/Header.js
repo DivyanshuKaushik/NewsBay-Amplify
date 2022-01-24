@@ -8,7 +8,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { GoSignIn } from "react-icons/go";
-import { Auth } from "aws-amplify";
+// import { Auth } from "aws-amplify";
 import useAuthenticatedUser from "../../hooks/authenticatedUser";
 import { useEffect, useState } from "react";
 
@@ -29,7 +29,7 @@ function Header() {
   const user = useAuthenticatedUser() || true
   return (
 
-      <header className="sticky top-0 z-50 bg-gray-900 px-4 overflow-x-scroll scrollbar-hide">
+      <header className="sticky top-0 z-50 bg-cyan-900 px-4 overflow-x-scroll scrollbar-hide">
         <nav className="flex md:justify-center items-center overflow-x-scroll scrollbar-hide">
           {user && (
             <>
@@ -63,7 +63,7 @@ function Header() {
                   <span className="">Users</span>
                 </a>
               </Link>
-              <button className="panel_nav_item" onClick={() => Auth.signOut()}>
+              <button className="panel_nav_item" >
                 <FaArrowAltCircleLeft size={12} />
                 <span className="">Logout</span>
               </button>

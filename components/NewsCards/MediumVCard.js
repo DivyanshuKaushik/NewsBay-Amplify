@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const MediumVCard = ({category}) => {
   return (
-      <div className="flex flex-col h-[250px] w-52 m-3">
+      <div className="flex flex-col h-[250px] w-52 m-1">
         <div className="relative h-full w-full">
           <Image
             src="https://images.unsplash.com/photo-1496243975092-6ec259c776e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
