@@ -25,4 +25,7 @@
     .posts_tab_li{
         @apply px-3 py-2 uppercase text-xs text-blue-500 cursor-pointer md:text-sm;
     }
+    .article_section{
+        @apply w-5/6 mx-auto py-3;
+    }
 }

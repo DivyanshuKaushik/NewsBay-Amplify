@@ -30,3 +30,4 @@ const SmallVCard = ({ post }) => {
 };
 
 export default SmallVCard;
+

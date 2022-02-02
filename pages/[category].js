@@ -2,15 +2,16 @@ import { Button } from "@mui/material";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import LargeCard from "../components/NewsCards/LargeCard";
-import MediumHCard from "../components/NewsCards/MediumHCard";
-import MediumVCard from "../components/NewsCards/MediumVCard";
-import SmallHCard from "../components/NewsCards/SmallHCard";
-import SmallVCard from "../components/NewsCards/SmallVCard";
+import MainHeader from "../components/Layout/MainHeader";
+import LargeCard from "../components/Cards/LargeCard";
+import MediumHCard from "../components/Cards/MediumHCard";
+import MediumVCard from "../components/Cards/MediumVCard";
+import SmallHCard from "../components/Cards/SmallHCard";
+import SmallVCard from "../components/Cards/SmallVCard";
 import Heading from "../components/Utilities/Heading";
 import API from "../service/API";
 
-const NewsBasedOnCaategory = ({articles}) => {
+const NewsBasedOnCaategory = ({articles,headerCategory}) => {
   const router = useRouter();
   let { category,page,limit } = router.query;
   // const [paginate,setPaginate] = useState({start})
@@ -29,6 +30,7 @@ const NewsBasedOnCaategory = ({articles}) => {
       <Head>
         <title> {category ? category : "Loading"} - Read NewsBay</title>
       </Head>
+      <MainHeader category={headerCategory} />
       <div className="w-4/5 md:max-w-[600px] mx-auto">
         <Heading title={category} color="black" />
         <div className="flex flex-wrap justify-center md:justify-between items-center w-full py-5">
@@ -58,10 +60,13 @@ export async function getServerSideProps(context){
   // console.log(start,end,page,limit)
   // console.log(context)
 
-  const articles = (await API.get(`getArticles?category=${category}&start=${start}&end=${end}`)).data.articles
+  const headerCategory = (await API.get("/category")).data.category;
+
+  const articles = (await API.get(`getArticles?category=${category}&start=${start}&end=${end}`)).data
   return {
     props:{
-      articles
+      articles,
+      headerCategory
     }
   }
 }

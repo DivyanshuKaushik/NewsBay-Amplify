@@ -11,7 +11,7 @@ const PostStatus = ({ post }) => {
   const { sk, image, title,status } = post;
   const buttonRef = useRef();
   useEffect(()=>{
-    setPostStatus(status =="submitted" || "rejected" ? "published" : "rejected")
+    setPostStatus(status =="submitted" || status =="rejected" ? "published" : "rejected")
     setStatusVal(status =='published' ? "Unpublish" : "Publish")
   },[post])
 

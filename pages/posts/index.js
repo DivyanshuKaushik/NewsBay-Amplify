@@ -5,32 +5,44 @@ import API from "../../service/API";
 
 import Link from "next/link";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
 
 function Post() {
   const [ui, setUi] = useState("your_posts")
 
-  const [posts,setPosts] = useState([])
+  const [all_posts,setAllPosts] = useState([])
+  const [published_posts,setPublishedPosts] = useState([])
+  const [submitted_posts,setSubmittedPosts] = useState([])
+  const [rejected_posts,setRejectedPosts] = useState([])
   const [unpublished_posts,setUnpublishedPosts] = useState([])
 
   const fetchPosts = async()=>{
-    setPosts((await API.get("/articles?user=divyanshu")).data.articles)
-    setUnpublishedPosts((await API.get('/getUnpublishedPosts')).data.articles)
+    try{
+      let posts= (await API.get("/articles?user=divyanshu")).data
+      let publishedPosts = posts.filter(post=>post.status=='published')
+      let submittededPosts = posts.filter(post=>post.status=='submitted')
+      let rejectedPosts = posts.filter(post=>post.status=='rejected')
+      setAllPosts(posts)
+      setPublishedPosts(publishedPosts)
+      setSubmittedPosts(submittededPosts)
+      setRejectedPosts(rejectedPosts)
+      setUnpublishedPosts((await API.get('/getUnpublishedPosts')).data.articles)
+    }catch(err){
+      alert(err)
+    }
   }
+  // console.log(unpublished_posts)
 
   useEffect(()=>{
     fetchPosts()
-  },[posts,unpublished_posts])
+  },[all_posts,unpublished_posts])
   return (
     <Protected>
       <main className="relative">
         <nav className="">
           <ul className="flex justify-center items-center bg-gray-100 overflow-scroll scrollbar-hide">
             <li className={`${ui=="your_posts" && "border-b-2 border-x-0 border-blue-500"} posts_tab_li`} onClick={()=>setUi("your_posts")}>Your Post</li>
+            <li className={`${ui=="submitted_posts" && "border-b-2 border-x-0 border-blue-500"} posts_tab_li`} onClick={()=>setUi("submitted_posts")}>Submitted Post</li>
+            <li className={`${ui=="rejected_posts" && "border-b-2 border-x-0 border-blue-500"} posts_tab_li`} onClick={()=>setUi("rejected_posts")}>Rejected Post</li>
             <li className={`${ui=="unpublished_posts" && "border-b-2 border-x-0 border-blue-500"} posts_tab_li`} onClick={()=>setUi("unpublished_posts")}>Unpublished Post</li>
             <li className={`${ui=="all_posts" && "border-b-2 border-x-0 border-blue-500"} posts_tab_li`} onClick={()=>setUi("all_posts")}>All Post</li>
             <li className={`${ui=="" && "border-b-2 border-x-0 border-blue-500"} posts_tab_li`}>
@@ -43,8 +55,17 @@ function Post() {
           </ul>
         </nav>
         <div className="">
-        {ui=='your_posts' && posts &&
-          <Posts posts={posts} />
+        {ui=='your_posts' && published_posts &&
+          <Posts posts={published_posts} />
+        }
+        {ui=='submitted_posts' && submitted_posts &&
+          <Posts posts={submitted_posts} />
+        }
+        {ui=='rejected_posts' && rejected_posts &&
+          <Posts posts={rejected_posts} />
+        }
+        {ui=='all_posts' && all_posts &&
+          <Posts posts={all_posts} />
         }
         {ui=='unpublished_posts' && unpublished_posts &&
           <Posts posts={unpublished_posts} />

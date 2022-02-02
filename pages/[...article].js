@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Ads from "../components/Utilities/Ads";
-import SmallVCard from "../components/NewsCards/SmallVCard";
-import SmallHCard from "../components/NewsCards/SmallHCard";
+import SmallVCard from "../components/Cards/SmallVCard";
+import SmallHCard from "../components/Cards/SmallHCard";
 import Heading from "../components/Utilities/Heading";
 import API from "../service/API";
 import Head from "next/head";
+import MainHeader from "../components/Layout/MainHeader";
 
-const Article = ({ article ,related }) => {
+const Article = ({ article ,related,headerCategory }) => {
   const { title, image, category, source, author, time,summary,tags } = article;
   return (
     <>
@@ -18,6 +19,7 @@ const Article = ({ article ,related }) => {
         <meta name="author" property="og:author" content={author} />
         <meta name="keywords" property="og:keywords" content={tags} />
       </Head>
+      <MainHeader category={headerCategory} />
       <main className="grid grid-cols-1 md:grid-cols-3 w-5/6 mx-auto py-10 gap-6 md:gap-0">
         {article && (
           <article className="md:col-span-2">
@@ -51,10 +53,10 @@ const Article = ({ article ,related }) => {
           <Ads />
           <Ads />
           <Ads />
-          <SmallHCard />
-          <SmallHCard />
-          <SmallHCard />
-          <SmallHCard />
+          {/* <SmallHCard />
+          <SmallHCard /> */}
+          {/* <SmallHCard />
+          <SmallHCard /> */}
         </aside>
       </main>
     </>
@@ -67,22 +69,23 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const slug = params.article;
   let id = slug[1].split("-").reverse()[0];
-  let article = {};
-  let related = {};
+  let article = [];
+  let related = [];
   if (slug.length > 1 && slug.length < 3) {
-    article = (
-      await API.get(`/getArticles?category=${slug[0].toLowerCase()}&id=${id}`)
-    ).data.article;
+    article = (await API.get(`/getArticles?id=${id}`)).data;
+
     related = (
       await API.get(`/getArticles?category=${slug[0].toLowerCase()}&start=0&end=3`)
-    ).data.articles;
+    ).data;
+    related = related.filter((post)=>post.id != id)
   }
   //   console.log('article',article);
-  related = related.filter((post)=>post.id != id)
+  const headerCategory = (await API.get("/category")).data.category;
   return {
     props: {
       article,
-      related
+      related,
+      headerCategory
     },
   };
 }

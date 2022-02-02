@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { FaMobile, FaSearch } from "react-icons/fa";
-const category = [
-  "Sports",
-  "Bussiness",
-  "National",
-  "state",
-  "local",
-  "media",
-  "bollywood",
-  "tech",
-];
+// const category = [
+//   "Sports",
+//   "Bussiness",
+//   "National",
+//   "state",
+//   "local",
+//   "media",
+//   "bollywood",
+//   "tech",
+// ];
 
-const MainHeader = () => {
+const MainHeader = ({category}) => {
   return (
     <header className="sticky z-40 shadow-lg px-4 md:px-10 mx-auto">
       <center>
@@ -24,11 +24,11 @@ const MainHeader = () => {
       <hr className="bg-black pt-0.5 my-2 md:my-3"/>
       <div className="flex justify-around items-center">
         <nav className="flex overflow-x-scroll scrollbar-hide">
-          {category.map((item, i) => (
-            <Link key={i} href={`/${item}`}>
+          {category&&category.map((item, i) => (
+            <Link key={i} href={`/${item.category}?page=1&limit=10`}>
               <a className="flex text-gray-700 text-sm font-semibold uppercase py-3 mx-3 hover:text-gray-800">
               <FaMobile size={16}/>
-                {item}
+                {item.category}
               </a>
             </Link>
           ))}

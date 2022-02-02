@@ -7,7 +7,7 @@ const LargeCard = ({post }) => {
     <Link href={`/${category}/${slug}-${id}`}>
     <a>
 
-      <article className="flex flex-col h-[350px] w-72 m-1 group shadow-lg">
+      <article className="flex flex-col h-[350px] w-72 md:w-64 m-1 group shadow-lg">
         <div className="relative h-64 w-full">
           <Image
             src={`${image ? image : "https://images.unsplash.com/photo-1496243975092-6ec259c776e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"}`}
