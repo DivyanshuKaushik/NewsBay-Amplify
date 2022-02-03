@@ -1,4 +1,3 @@
-import { useUser } from "@auth0/nextjs-auth0";
 import { Button } from "@mui/material";
 import axios from "axios";
 import Head from "next/head";
@@ -18,8 +17,6 @@ import API from "../service/API";
 
 export default function Home({ articles, category }) {
   // const user = useAuthenticatedUser();
-  const { user, isLoading, error } = useUser();
-  console.log(user);
   const router = useRouter();
   const loadMore = (category) => {
     router.push({
