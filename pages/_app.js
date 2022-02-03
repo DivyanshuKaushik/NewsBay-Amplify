@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import React from 'react';
 // auth0
-import { UserProvider } from "@auth0/nextjs-auth0";
 
 // aws configuration
 // import Amplify from "aws-amplify";
@@ -67,9 +66,7 @@ function MyApp({ Component, pageProps,category }) {
       {/* {loading || true ? <div className="flex items-center justify-center h-96 w-full"><CircularProgress color="primary" /></div>
       :
       } */}
-      <UserProvider>
         <Component {...pageProps} />
-      </UserProvider>
     </>
   );
 }
